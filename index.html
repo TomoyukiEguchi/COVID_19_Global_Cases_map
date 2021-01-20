@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>D3 World Map</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <title>COVID-19 Global Cases</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -10,6 +13,15 @@
 </head>
 <body>
 <script type="module">
+$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+$(window).on('load', function(){
+    setTimeout(removeLoader, 2000);
+});
+function removeLoader(){
+    $("#loadingDiv").fadeOut(500, function(){
+        $("#loadingDiv").remove();
+    });
+}
 import { sizeLegend } from './sizeLegend.js'
 import { changeValue } from './changeValue.js'
 const width = 960;
@@ -42,8 +54,8 @@ const D_N24Hs = d => +d['Deaths - newly reported in last 24 hours'];
 const D_TPM = d => +d['Deaths - cumulative total per 1 million population'];
 const populationFormat = d3.format(',');
 
-d3.csv('https://cors-anywhere.herokuapp.com/https://covid19.who.int/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
-//d3.csv('WHO-COVID-19-global-table-data.csv', function(error, csvData) {
+//d3.csv('https://cors-anywhere.herokuapp.com/https://covid19.who.int/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
+d3.csv('assets/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
   d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json', function(error, jsonData) {
     if (error) throw error;
 
@@ -166,5 +178,6 @@ d3.csv('https://cors-anywhere.herokuapp.com/https://covid19.who.int/WHO-COVID-19
 });
 
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>
