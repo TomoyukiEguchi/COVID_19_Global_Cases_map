@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: rgb(41, 41, 41);
+}
+svg {
+    background-color:rgb(255, 255, 255);
+}
+path {
+    stroke: rgb(173, 173, 173);
+    stroke-width: 0.2px;
+    /*fill: rgb(110, 110, 110);*/
+}
+.country:hover {
+    fill: rgb(255, 145, 145);
+    cursor: pointer;
+}
+div.tooltip {
+    position: absolute;
+    width: 265px;
+    min-height: 28px;
+    padding: 8px 8px;
+    font: 12px sans-serif;
+    background: lavenderblush;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.tooltip {
+    white-space: pre-wrap;
+}
+.tick text {
+    font-size: 1.1em;
+    fill:rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+.tick circle, .country-circle {
+    fill: rgb(255, 93, 93);
+    fill-opacity: 0.3;
+    stroke: rgb(255, 135, 195);
+    stroke-width: 0.3;
+    pointer-events: none;
+}
+.data-title{
+    font-size: 1.5em;
+    fill:rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+.legend-title{
+    font-size: 1.2em;
+    fill:rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+.globalCase text {
+    font-size: 1em;
+    fill:rgb(0, 0, 0);
+    font-family: sans-serif;
+    white-space: pre-wrap;
+}
