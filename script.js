@@ -39,8 +39,9 @@ const D_N24Hs = d => +d['Deaths - newly reported in last 24 hours'];
 const D_TPM = d => +d['Deaths - cumulative total per 1 million population'];
 const populationFormat = d3.format(',');
 
-d3.csv('https://cors-anywhere.herokuapp.com/https://covid19.who.int/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
-//d3.csv('assets/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
+//d3.csv('https://cors-anywhere.herokuapp.com/https://covid19.who.int/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
+d3.csv('assets/WHO-COVID-19-global-table-data.csv', function(error, csvData) {
+    if (error) throw error;
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json', function(error, jsonData) {
     if (error) throw error;
 
@@ -143,7 +144,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json', functio
                 ].join(': '));
 
         svg.append('g')
-            .attr('transform', `translate(50, 290)`)
+            .attr('transform', `translate(50, 300)`)
             //.attr('transform', `translate(55, 215)`)
             .attr('class', 'sizeLegend')
             .call(sizeLegend, {
@@ -158,6 +159,15 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json', functio
                 .attr('class', 'legend-title')
                 .attr('y', -40)
                 .attr('x', -25);
+
+        svg.append('g')
+            .attr('transform', `translate(850, 75)`)
+            .attr('class', 'dataTable')
+            .append('text')
+                .text('Data Table')
+                .on('click', function(){
+                    window.open('https://tomoyukieguchi.github.io/covid_barChart/');
+                });
 
 });
 });
