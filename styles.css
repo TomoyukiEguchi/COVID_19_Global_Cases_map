@@ -62,9 +62,12 @@ div.tooltip {
 }
 .dataTable text {
     font-size: 1.1em;
-    fill:rgb(255, 93, 93);
+    fill:rgb(175, 64, 64);
     font-family: sans-serif;
-    white-space: pre-wrap;
+    text-decoration: underline;
+}
+.dataTable:hover {
+    cursor: pointer;
 }
 .loader,
 .loader:after {
