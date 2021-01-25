@@ -164,7 +164,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json', functio
             .attr('transform', `translate(850, 75)`)
             .attr('class', 'dataTable')
             .append('text')
-                .text('Data Table')
+                .text('Bar Chart')
                 .on('click', function(){
                     window.open('https://tomoyukieguchi.github.io/covid_barChart/');
                 });
